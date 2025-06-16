@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- RecyclerView for item list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/totalBudgetText"
+        android:padding="16dp" />
+
+    <!-- Bottom total budget -->
+    <TextView
+        android:id="@+id/totalBudgetText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: Rs. 0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="#EFEFEF"
+        android:padding="12dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" />
+
+    <!-- Floating '+' Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_above="@id/totalBudgetText"
+        android:contentDescription="Add Item" />
+
+</RelativeLayout>

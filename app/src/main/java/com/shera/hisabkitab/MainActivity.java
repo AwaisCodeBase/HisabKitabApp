@@ -56,11 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                         // Go to dashboard or home screen
-                        // Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                        // startActivity(intent);
-
-                        Toast.makeText(MainActivity.this, "Login successful: ", Toast.LENGTH_LONG).show();
-
+                        Intent intent = new Intent(MainActivity.this, HisabActivity.class);
+                        startActivity(intent);
                         finish();
                     } else {
                         Toast.makeText(MainActivity.this, "Login failed: " +
