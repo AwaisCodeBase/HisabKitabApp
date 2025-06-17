@@ -9,6 +9,7 @@
     app:cardCornerRadius="20dp"
     android:elevation="4dp"
     >
+
     <LinearLayout
         android:background="#7B2D85FE"
 
