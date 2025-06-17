@@ -2,7 +2,9 @@ package com.shera.hisabkitab;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -18,6 +20,8 @@ public class SignupActivity extends AppCompatActivity {
     private EditText signupEmail, signupPassword, userName;
     private Button btnSignup, btnLogin;
     private FirebaseAuth mAuth;
+
+    private ProgressBar progressBar;
     private ActivitySignupBinding binding;
 
     @Override
@@ -50,7 +54,10 @@ public class SignupActivity extends AppCompatActivity {
             } else if (password.length() < 6) {
                 Toast.makeText(SignupActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             } else {
+                progressBar = findViewById(R.id.signupProgressBar);
+                progressBar.setVisibility(View.VISIBLE); // Show when loading
                 createUser(email, password);
+
             }
         });
 
@@ -68,10 +75,12 @@ public class SignupActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         Toast.makeText(SignupActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);    // Hide after done
                         Intent intent = new Intent(SignupActivity.this, HisabActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
+                        progressBar.setVisibility(View.GONE);    // Hide after done
                         Toast.makeText(SignupActivity.this, "Sign Up Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });

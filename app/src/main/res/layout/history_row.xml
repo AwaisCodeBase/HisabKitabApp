@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="8dp"
+    android:padding="16dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    android:elevation="4dp"
+    >
+
+
+    <LinearLayout
+        android:background="#7B2D85FE"
+
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/timestampTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17 Jun 2025, 05:45 PM"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <!-- Favorite/Action Button -->
+        <ImageButton
+            android:id="@+id/delbtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circular_button_background"
+            android:src="@drawable/del"
+            android:layout_marginStart="50sp"
+            android:contentDescription="Add to favorites"
+            android:scaleType="centerInside"
+            />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

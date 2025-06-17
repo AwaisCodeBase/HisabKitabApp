@@ -2,7 +2,9 @@ package com.shera.hisabkitab;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
     private ActivityMainBinding binding;
+
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(MainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {
+                progressBar = findViewById(R.id.loginProgressBar);
+                progressBar.setVisibility(View.VISIBLE); // show
                 loginUser(email, password);
             }
         });
@@ -48,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, SignupActivity.class);
             startActivity(intent);
         });
+
+
     }
 
     private void loginUser(String email, String password) {
@@ -56,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                         // Go to dashboard or home screen
+                        progressBar.setVisibility(View.GONE);    // Hide after done
                         Intent intent = new Intent(MainActivity.this, HisabActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
+                        progressBar.setVisibility(View.GONE); // hide
                         Toast.makeText(MainActivity.this, "Login failed: " +
                                 task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }

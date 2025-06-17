@@ -1,26 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp"
-    android:background="#F5F5F5"
-    android:layout_marginBottom="8dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:contentDescription="Beautiful item row">
 
-    <TextView
-        android:id="@+id/itemName"
-        android:layout_width="25dp"
-        android:layout_weight="1"
-        android:layout_height="25dp"
-        android:text="Item Name"
-        android:textSize="16sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/gradient_background">
 
-    <TextView
-        android:id="@+id/itemPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:text="Rs. 100"
-        android:textStyle="bold"
-        android:textSize="16sp" />
+<!--        &lt;!&ndash; Item Icon/Image Placeholder &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/itemIcon"-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="@drawable/circular_icon_background"-->
+<!--            android:padding="12dp"-->
+<!--            android:src="@drawable/ic_shopping_bag"-->
+<!--            android:contentDescription="Item icon"-->
+<!--            android:scaleType="centerInside" />-->
 
-</LinearLayout>
+        <!-- Item Details Container -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Premium Item Name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2C3E50"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/itemDescription"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="High quality product description"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textColor="#7F8C8D"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="1" />-->
+
+        </LinearLayout>
+
+        <!-- Price Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs. 1,250"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#E74C3C"
+                />
+
+<!--            <TextView-->
+<!--                android:id="@+id/originalPrice"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Rs. 1,500"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textColor="#95A5A6"-->
+<!--                android:fontFamily="@font/roboto_regular"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:background="@drawable/strikethrough_background"-->
+<!--                android:visibility="gone" />-->
+
+        </LinearLayout>
+
+        <!-- Favorite/Action Button -->
+        <ImageButton
+            android:id="@+id/delbtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/circular_button_background"
+            android:src="@drawable/del"
+            android:contentDescription="Add to favorites"
+            android:scaleType="centerInside"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

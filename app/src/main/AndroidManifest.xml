@@ -13,6 +13,10 @@
         android:theme="@style/Theme.HisabKitab"
         tools:targetApi="31">
         <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HisabKitab" />
+        <activity
             android:name=".HisabActivity"
             android:exported="false"
             android:theme="@style/Theme.HisabKitab" />
