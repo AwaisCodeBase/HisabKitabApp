@@ -21,7 +21,8 @@
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": []
-        }
+        },
+
       }
     }
   ],
